@@ -20,7 +20,6 @@ class CNN(nn.Module):
         self.to(self.device)
 
     def forward(self, x):
-        x = torch.Tensor(x).to(self.device)
         x = F.relu(self.conv1(x))
         x = F.relu(self.conv2(x))
         x = self.lin(x.view(-1, 20 * 20 * 32))

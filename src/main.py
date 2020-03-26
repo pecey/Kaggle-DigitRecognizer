@@ -11,7 +11,7 @@ if __name__ == "__main__":
     test = pd.read_csv("../data/test.csv")
     batch_size = 64
     n_iterations = 250
-    n_epochs = 100
+    n_epochs = 20
     learning_rate = 0.01
 
     transformation = transforms.Compose([
@@ -39,6 +39,7 @@ if __name__ == "__main__":
     model.train()
 
     for i in range(n_epochs):
+        print(i)
         for images, labels in training_generator:
             images = images.to(model.device)
             labels = labels.to(model.device)

@@ -1,4 +1,5 @@
 import pandas as pd
+import torch as T
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim
@@ -26,6 +27,11 @@ class CNN(nn.Module):
         x = F.log_softmax(x, dim = 1)
         return x
 
+    def save(self, path):
+        T.save(self.state_dict(), path)
+
+    def load(self, path):
+        self.load_state_dict(T.load(path))
 
 
 

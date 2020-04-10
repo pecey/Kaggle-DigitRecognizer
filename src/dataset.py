@@ -3,8 +3,8 @@ from torch.utils.data import Dataset
 
 
 class DigitsDataset(Dataset):
-    def __init__(self, data, transform):
-        self.data = data.sample(frac=1).reset_index(drop=True)
+    def __init__(self, data, transform, shuffle = True):
+        self.data = data.sample(frac=1).reset_index(drop=True) if shuffle else data
         self.transform = transform
 
     def __len__(self):
